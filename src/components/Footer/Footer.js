@@ -4,69 +4,87 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className='footer bg-orange'>
+    <footer className='footer bg-blue'>
       <div className = "container py-4 text-center">
-        <div className='flex align-center justify-center text-white fw-3 fs-14'>
-          <Link to = "/" className='text-uppercase'>Privacy Policy</Link>
-          <div className='vert-line'></div>
-          <Link to = "/" className='text-uppercase'>term of service</Link>
-          <div className='vert-line'></div>
-          <Link to = "/" className='text-uppercase'>About SnapUp.</Link>
-        </div>
-        <div className='header-cnt-top fs-13 py-2 flex align-center justify-between'>
-          <div className='header-cnt-top-l'>
-            <ul className='flex top-links align-center'>
-              <li>
-                <Link to = "/seller">Seller Center</Link>
-              </li>
-              <li className='vert-line'></li>
-              <li>
-                <Link to = "/download">Download</Link>
-              </li>
-              <li className='vert-line'></li>
-              <li className='flex align-center'>
-                <span className='fs-13'>Follow us on</span>
-                <ul className='social-links flex align-center'>
-                  <li className='mx-2'>
-                    <a href = "www.facebook.com" className='fs-15'>
-                      <i className='fab fa-facebook'></i>
-                    </a>
-                  </li>
-                  <li className='mx-2'>
-                    <a href = "www.instagram.com" className='fs-15'>
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+        <div className='sub-cnt1 flex justify-between py-4'>
+          <div className='footer-cnt-box1 flex text-white fw-3 fs-14'>
+            <div className='about-box flex flex-column'>
+              <h5 className='box-title'>ABOUT</h5>
+              <ul>
+                <li>Contact Us</li>
+                <li>About Us</li>
+                <li>Careers</li>
+                <li>WholeSale</li>
+                <li>COrporate Information</li>
+              </ul>
+            </div>
+
+            <div className='help-box flex flex-column'>
+              <h5 className='box-title'>HELP</h5>
+              <ul>
+                <li>Payments</li>
+                <li>Shipping</li>
+                <li>Cancellation & Returns</li>
+                <li>FAQ</li>
+                <li>Report Infringement</li>
+              </ul>
+            </div>
+
+            <div className='policy-box flex flex-column'>
+              <h5 className='box-title'>CONSUMER POLICY</h5>
+              <ul>
+                <li>Return Policy</li>
+                <li>Terms Of Use</li>
+                <li>Security</li>
+                <li>Privacy</li>
+                <li>Sitemap</li>
+              </ul>
+            </div>
+
+            <div className='social-box flex flex-column'>
+              <h5 className='box-title'>SOCIAL</h5>
+              <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>YouTube</li>
+              </ul>
+            </div>
           </div>
-          <div className='header-cnt-top-r'>
-            <ul className='top-links flex align-center'>
-              <li>
-                <Link to = "/" className='top-link-itm'>
-                  <span className='top-link-itm-ico mx-2'>
-                    <i className='fa-solid fa-circle-question'></i>
-                  </span>
-                  <span className='top-link-itm-txt'>Support</span>
-                </Link>
-              </li>
-              <li className='vert-line'></li>
-              <li>
-                <Link to = "/">
-                  <span className='top-link-itm-txt'>Register</span>
-                </Link>
-              </li>
-              <li className='vert-line'></li>
-              <li>
-                <Link to = "/">
-                  <span className='top-link-itm-txt'>Log in</span>
-                </Link>
-              </li>
-            </ul>
+          <div className='footer-cnt-box2 flex text-white fw-3 fs-14'>
+            <div className='mail-box flex flex-column'>
+              <h5 className='box-title'>Mail Us</h5>
+              <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor eros sit amet eleifend sodales. Suspendisse malesuada erat erat, et scelerisque erat molestie nec.</li>
+              </ul>
+            </div>
+
+            <div className='address-box flex flex-column'>
+              <h5 className='box-title'>Registered Office Address</h5>
+              <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor eros sit amet eleifend sodales. Suspendisse malesuada erat erat, et scelerisque erat molestie nec. Nam tortor tellus, rutrum vitae eleifend eget, finibus sed nunc. Cras nec neque accumsan, eleifend ligula eu, gravida libero. Nunc at suscipit eros.</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <span className='text-white copyright-text text-manrope fs-14 fw-3'>&copy; 2022 SnapUp. All Rights Reserved.</span>
+        <div className='footer-link-box flex align-center justify-center text-white fw-3 fs-14'>
+          <Link to = "/">
+            <i className='mx-2 fa fa-briefcase'></i>
+            Become a Seller
+          </Link>
+          <Link to = "/">
+            <i className='mx-2 fab fa-facebook'></i>
+            Advertise
+          </Link>
+          <Link to = "/">
+            <i className='mx-2 fa fa-gift'></i>
+            Gift Cards
+          </Link>
+          <Link to = "/">
+            <i className='mx-2 fa fa-question-circle'></i>
+            Help Center
+          </Link>
+          <span className='text-white copyright-text text-manrope'>&copy; 2023 eBuy</span>
+        </div>
       </div>
     </footer>
   )

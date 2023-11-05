@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import {formatPrice} from "../../utils/helpers";
 import "./Product.scss";
 
-const Product = ({product}) => {
+const Product = React.forwardRef((props, ref) => {
+  const {product} = props;
   return (
-    <Link to = {`/product/${product?.id}`} key = {product?.id}>
+    <Link ref={ref} to = {`/product/${product?.id}`} key = {product?.id}>
       <div className='product-item bg-white h-100'>
         <div className='category'>{product?.category}</div>
         <div className='product-item-img'>
@@ -33,7 +34,7 @@ const Product = ({product}) => {
         </div>
       </div>
     </Link>
-  )
-}
+  );
+});
 
-export default Product
+export default Product;
