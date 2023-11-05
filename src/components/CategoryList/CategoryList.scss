@@ -1,0 +1,49 @@
+@import "../../App.scss";
+
+.category-list{
+    box-shadow: 0 1px 3px gray;
+    margin: 0;
+    overflow-x: scroll;
+    padding: 10px;
+    position: sticky;
+    top: 64px;
+    z-index: 3;
+    .category-item{
+        margin-right: 16px;
+        flex: 0 0 120px;
+        white-space: nowrap;
+        margin-right: 10px;
+        .category-link{
+            font-weight: 700;
+            transition: $transition-ease;
+            &:hover{
+                opacity: 0.95;
+            }
+        }
+    }
+    &.overflow-x-scroll {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: 'Manrope', sans-serif;
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+    &::-webkit-scrollbar {
+        height: 0;
+        width: 10px;
+    }
+      
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+      
+    &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+    @media screen and (max-width: 992px){
+        display: none;
+    }
+}
