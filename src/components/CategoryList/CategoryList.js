@@ -10,14 +10,14 @@ const CategoryList = () => {
   return (
     <div className="bg-white category-list flex align-center fs-12 fw-4 font-manrope overflow-x-scroll">
       {categories?.map((category, idx) => (
-        <div className="category-item no-wrap" key={idx}>
+        <div className="category-item no-wrap" key={category?.slug}>
           <Link
-            to={`category/${category}`}
+            to={`category/${category?.slug}`}
             className="category-link text-capitalize"
           >
             <div className="flex flex-column align-center">
-                <Avatar name={category} size="40" round={true} />
-                <p>{category.replace("-", " ")}</p>
+              <Avatar name={category?.name} size="40" round={true} />
+              <p>{category?.name?.replace("-", " ")}</p>
             </div>
           </Link>
         </div>

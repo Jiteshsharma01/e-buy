@@ -10,7 +10,7 @@ const Product = React.forwardRef((props, ref) => {
       <div className='product-item bg-white h-100'>
         <div className='category'>{product?.category}</div>
         <div className='product-item-img'>
-          <img className='img-cover' src = {product?.images[0]} alt = {product.title} />
+          <img className='img-cover' src = {product?.images[0]} alt = {product.title} loading='eager' />
         </div>
         <div className='product-item-info fs-14'>
           <div className='brand'>
