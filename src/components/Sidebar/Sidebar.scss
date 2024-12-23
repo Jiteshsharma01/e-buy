@@ -20,7 +20,7 @@
         right: 2rem;
         transition: $transition-ease;
         &:hover{
-            color: $clr-orange;
+            color: $clr-blue;
         }
     }
     .cat-list{
@@ -53,8 +53,8 @@
         }
         &::-webkit-scrollbar-thumb{
             border-radius: 10px;
-            background-color: lighten($clr-light-orange, 5%);
-            outline: 1px solid $clr-light-orange;
+            background-color: lighten($clr-blue, 5%);
+            outline: 1px solid $clr-blue;
         }
     }
 }
