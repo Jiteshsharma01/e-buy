@@ -1,37 +1,54 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import "./HomePage.scss";
 import HeaderSlider from "../../components/Slider/HeaderSlider";
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllCategories } from '../../store/categorySlice';
 import ProductList from "../../components/ProductList/ProductList";
 import { fetchAsyncProducts, getAllProducts, getAllProductsStatus } from '../../store/productSlice';
 import Loader from "../../components/Loader/Loader";
 import { STATUS } from '../../utils/status';
 import CategoryList from '../../components/CategoryList/CategoryList';
+import useInfiniteScroll from '../../utils/useInfiniteScroll';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const categories = useSelector(getAllCategories);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchAsyncProducts(15));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchAsyncProducts(15));
+  // }, []);
 
-  const products = useSelector(getAllProducts);
+  // const products = useSelector(getAllProducts);
   const productStatus = useSelector(getAllProductsStatus);
 
-  // randomizing the products in the list
-  const tempProducts = [];
-  if(products.length > 0){
-    for(let i in products){
-      let randomIndex = Math.floor(Math.random() * products.length);
+  const [limit, setLimit] = useState(10);
+  const [skip, setSkip] = useState(0);
 
-      while(tempProducts.includes(products[randomIndex])){
-        randomIndex = Math.floor(Math.random() * products.length);
+  const { loading, error, hasMore, productList } = useInfiniteScroll(limit, skip);
+
+  const observer = useRef();
+  const lastProductElementRef = useCallback(node => {
+    if (loading) return;
+    if (observer?.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting && hasMore){
+        setSkip(prevSkip => prevSkip + 10);
       }
-      tempProducts[i] = products[randomIndex];
-    }
-  }
+    })
+    if (node) observer.current.observe(node);
+  }, [loading, hasMore]);
+  
+
+  // randomizing the products in the list
+  // const tempProducts = [];
+  // if(products.length > 0){
+  //   for(let i in products){
+  //     let randomIndex = Math.floor(Math.random() * products.length);
+
+  //     while(tempProducts.includes(products[randomIndex])){
+  //       randomIndex = Math.floor(Math.random() * products.length);
+  //     }
+  //     tempProducts[i] = products[randomIndex];
+  //   }
+  // }
 
   // category-wise products
   // let catProductsOne = products.filter(product => product.category === categories[0]);
@@ -52,7 +69,8 @@ const HomePage = () => {
               <div className='title-md'>
                 <h3>See our products</h3>
               </div>
-              { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products = {tempProducts} />}
+              { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products={productList} lastElRef={lastProductElementRef} />}
+              {/* <ProductList /> */}
             </div>
 
             {/* <div className='categories-item'>

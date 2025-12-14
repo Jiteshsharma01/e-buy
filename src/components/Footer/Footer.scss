@@ -1,6 +1,72 @@
 .footer{
-    .copyright-text{
-        display: block;
-        margin-top: 0.7rem;
+    .footer-cnt-box1{
+        flex: 0 0 53%;
+        gap: 4rem;
+        .about-box, .help-box, .policy-box, .social-box{
+            text-align: left;
+            .box-title{
+                font-size: 18px;
+                font-weight: 300;
+            }
+            ul{
+                margin-top: 12px;
+                li{
+                    font-size: 12px;
+                    font-weight: 600;
+                    margin-bottom: 4px;
+                }
+            }
+        }
+    }
+    .footer-cnt-box2{
+        flex: 0 0 41%;
+        gap: 2rem;
+        .mail-box{
+            flex: 0 0 45%;
+            padding-left: 16px;
+            border-left: 1px solid;
+            height: fit-content;
+        }
+        .mail-box, .address-box{
+            text-align: left;
+            .box-title{
+                font-size: 14px;
+                font-weight: 300;
+            }
+            ul{
+                margin-top: 12px;
+                li{
+                    font-size: 12px;
+                    font-weight: 500;
+                    margin-bottom: 4px;
+                }
+            }
+        }
+    }
+    .footer-link-box{
+        border-top: 1px solid;
+        gap: 7rem;
+        padding: 1rem 0;
+    }
+
+    // @media screen and (min-width: 576px){
+    //     grid-template-columns: repeat(2, 1fr);
+    //     column-gap: 1.4rem;
+    // }
+
+    @media screen and (max-width: 768px){
+        .sub-cnt1{
+            flex-direction: column;
+            .footer-cnt-box2{
+                margin-top: 5rem;
+                .mail-box{
+                    border: 0;
+                    padding: 0;
+                }
+            }
+        }
+        .footer-link-box{
+            gap: 1rem !important;
+        }
     }
 }

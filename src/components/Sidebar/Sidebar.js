@@ -24,10 +24,10 @@ const Sidebar = () => {
         <div className='cat-title fs-17 text-uppercase fw-6 ls-1h'>All Categories</div>
         <ul className='cat-list'>
           {
-            categories.map((category, idx) => {
+            categories?.map((category, idx) => {
               return (
-                <li key = {idx} onClick = {() => dispatch(setSidebarOff())}>
-                  <Link to = {`category/${category}`} className='cat-list-link text-capitalize'>{category.replace("-", " ")}</Link>
+                <li key = {category?.slug} onClick = {() => dispatch(setSidebarOff())}>
+                  <Link to = {`category/${category?.slug}`} className='cat-list-link text-capitalize'>{category?.name?.replace("-", " ")}</Link>
                 </li>
               )
             })
